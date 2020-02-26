@@ -10,19 +10,23 @@ enum Service: String, CustomStringConvertible {
     }
 }
 
+//    Protocol
 protocol TVInterface: CustomStringConvertible {
     
-    var activeChannel: Int? { get }
+    var activeChannel: Int? { get } // gettable/settable
     var activeService: Service? { get }
     
     func set(channel: Int)
     func start(service: Service)
 }
 
+// Protocol extensions
 extension TVInterface {
     func start(service: Service) {    }
     
+//    Computed property
     var description: String {
+//        String interpolation
         return "tv: activeChannel: \(activeChannel), activeService: \(activeService)"
     }
 }
@@ -31,6 +35,7 @@ class TVSet: TVInterface {
     
     let supports4K: Bool
     var activeChannel: Int?
+//    Composition
     var activeService: Service? {
         willSet {
             print("Starting \(newValue)! Hold on!")
@@ -79,7 +84,7 @@ class MediaHub {
     var numberOftvs: Int {
         return tvs.count
     }
-    
+//    Polymorphism + Access Control + read only
     private (set) var tvs: [TVInterface] = []
     
     func install(tv: TVInterface) {
@@ -97,6 +102,8 @@ class MediaHub {
     }
     
     func printAll() {
+        
+//        Different loops
         
 //        for i in 0..<tvs.count {
 //            let tv = tvs[i]
@@ -131,9 +138,10 @@ hubster.install(tv: uncleBobTV)
 
 print(hubster.numberOftvs)
 
-
+// Inheritance
 class VirtualTV: TVSet {
     
+//    method overriding
     override func set(channel: Int) {
         guard start3DEngine() else {
             print("Loool, failed to start 3d engine :/")
