@@ -5,4 +5,4 @@ Four hundred people were traveling on a cruise ship with two engines having powe
 Every tourist was assigned to a two or four person cabin shared with our tourists, which could be his friends. The ship had a restaurant and a two bars of 300, 50 ,50 people capacity correspondigly. Each tourist could visit one of the attractions or stay and his cabin at a time. Tourists under 18 years were not allowed to enter the bar. 
 
 
-**Goal**: implement the ship, person, restaurant, bar, cabin classes reflecting the above case.
+**Goal**: implement the ship, engine, person, restaurant, bar, cabin classes reflecting the above case.
